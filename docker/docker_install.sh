@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Установка Docker"
+echo "Download"
 
 
-echo "Обновление и установка нужных пакетов"
+echo "Update and install packages"
 sudo apt update
 sudo apt install -y \
     ca-certificates \
@@ -12,13 +12,13 @@ sudo apt install -y \
     lsb-release
 
 
-echo "Добавление GPG-ключа Docker"
+echo "Add GPG-key Docker"
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
     sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 
-echo "Добавление репозитория Docker"
+echo "Repos Docker"
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
   https://download.docker.com/linux/ubuntu \
@@ -26,7 +26,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
-echo "Установка Docker Engine и компонентов"
+echo "Install Docker Engine and components"
 sudo apt update
 sudo apt install -y \
     docker-ce \
@@ -35,7 +35,7 @@ sudo apt install -y \
     docker-buildx-plugin \
     docker-compose-plugin
 
-echo "Проверка версии Docker"
+echo "Checkout Docker version"
 docker --version
 
-echo "Docker успешно установлен"
+echo "Docker succcess install!"
